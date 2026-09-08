@@ -25,7 +25,7 @@
 (ns derive-wordlist
   (:require ["fs" :as fs]
             [clojure.edn :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [word-id.vocabulary :as vocab]))
 
 (def dictionary-path "/usr/share/dict/web2")
@@ -64,7 +64,7 @@
 
 (defn- dictionary-words []
   (->> (str/split (str (fs/readFileSync dictionary-path "utf8")) #"\n")
-       (map str/lower-case)
+       (map str/lower)
        (remove str/blank?)
        set))
 
@@ -76,7 +76,7 @@
   "辞書順に貪欲に採る。順序が決定的なので、同じ入力からは常に同じ語彙が出る。"
   [candidates denylist dictionary]
   (let [pool (->> candidates
-                  (map str/lower-case)
+                  (map str/lower)
                   distinct
                   (filter shaped?)
                   (remove denylist)
