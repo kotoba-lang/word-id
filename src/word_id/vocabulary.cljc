@@ -27,7 +27,7 @@
 
   ここには IO が無い。語彙は値として渡す。既定の英語語彙は
   `word-id.english/words`（生成物）にあり、それも値であってファイルではない。"
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def schema "word-id.vocabulary.v1")
 
@@ -192,7 +192,7 @@
   いるからで、この関数の性質ではない。検査していない語彙を渡すと、ここは
   たまたま最初に見つかった語を返す —— そうならないために `problems` がある。"
   [vocabulary given]
-  (let [w (-> (str given) str/trim str/lower-case)
+  (let [w (-> (str given) str/trim str/lower)
         words (:word-id.vocabulary/words vocabulary)]
     (cond
       (str/blank? w) nil

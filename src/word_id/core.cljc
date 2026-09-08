@@ -38,7 +38,7 @@
 
   この ns は IO を持たず、語彙も持たない。既定の英語語彙は
   `word-id.english/vocabulary`。"
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [word-id.vocabulary :as vocabulary]))
 
 (def schema "word-id.core.v1")
@@ -174,7 +174,7 @@
   直した箇所は `:word-id/corrections` に**必ず載せる**。黙って直すと、利用者は
   自分の控えと画面の食い違いに気づけない。"
   [v s]
-  (let [tokens (->> (str/split (str/lower-case (str s)) #"[^a-z]+")
+  (let [tokens (->> (str/split (str/lower (str s)) #"[^a-z]+")
                     (remove str/blank?)
                     vec)
         expected (inc (payload-words v))]
