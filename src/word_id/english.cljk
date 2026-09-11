@@ -1,6 +1,6 @@
 ;; 生成物。手で編集しない。
-;; 再生成: nbb --classpath src scripts/derive_wordlist.cljk
-;; 検査:   nbb --classpath src scripts/derive_wordlist.cljk --check
+;; 再生成: kbb --backend sci --classpath src scripts/derive_wordlist.cljk
+;; 検査:   kbb --backend sci --classpath src scripts/derive_wordlist.cljk --check
 (ns word-id.english
   "既定の英語語彙 —— 1021 語。**生成物。手で編集しない。**
 
