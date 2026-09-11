@@ -1,7 +1,7 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; ClojureScript 側でも同じテストを回す。
 ;;
-;;   nbb --classpath src:test run-tests.cljk
+;;   kbb --backend sci --classpath src:test run-tests.cljk
 ;;
 ;; JVM で通ることは、この library が **ClojureScript でも同じ答えを出す**ことの
 ;; 証拠にならない。特に `code` の整数精度（JS の number は 2^53）と `mod` の

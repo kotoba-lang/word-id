@@ -1,7 +1,7 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; scripts/candidates.edn -> resources/word_id/english_1021.edn
 ;;
-;;   nbb scripts/derive_wordlist.cljk [--check]
+;;   kbb --backend sci scripts/derive_wordlist.cljk [--check]
 ;;
 ;; --check は書かずに突き合わせるだけ（CI 用）。
 ;;
@@ -134,8 +134,8 @@
               (doseq [i issues] (println "  " (pr-str i)))
               (js/process.exit 1))
           text (str ";; 生成物。手で編集しない。\n"
-                    ";; 再生成: nbb --classpath src scripts/derive_wordlist.cljk\n"
-                    ";; 検査:   nbb --classpath src scripts/derive_wordlist.cljk --check\n"
+                    ";; 再生成: kbb --backend sci --classpath src scripts/derive_wordlist.cljk\n"
+                    ";; 検査:   kbb --backend sci --classpath src scripts/derive_wordlist.cljk --check\n"
                     "(ns word-id.english\n"
                     "  \"既定の英語語彙 —— " target-size " 語。**生成物。手で編集しない。**\n\n"
                     "  出所は /usr/share/dict/web2（Webster's Second International、public domain）。\n"
