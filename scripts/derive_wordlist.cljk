@@ -1,7 +1,7 @@
 #!/usr/bin/env nbb
 ;; scripts/candidates.edn -> resources/word_id/english_1021.edn
 ;;
-;;   nbb scripts/derive_wordlist.cljs [--check]
+;;   nbb scripts/derive_wordlist.cljk [--check]
 ;;
 ;; --check は書かずに突き合わせるだけ（CI 用）。
 ;;
@@ -30,7 +30,7 @@
 
 (def dictionary-path "/usr/share/dict/web2")
 (def candidates-path "scripts/candidates.edn")
-(def output-path "src/word_id/english.cljc")
+(def output-path "src/word_id/english.cljk")
 
 (def target-size
   "1021 は 1024 に最も近い素数。**素数であることが要件**で、切りのよさではない。
@@ -134,13 +134,13 @@
               (doseq [i issues] (println "  " (pr-str i)))
               (js/process.exit 1))
           text (str ";; 生成物。手で編集しない。\n"
-                    ";; 再生成: nbb --classpath src scripts/derive_wordlist.cljs\n"
-                    ";; 検査:   nbb --classpath src scripts/derive_wordlist.cljs --check\n"
+                    ";; 再生成: nbb --classpath src scripts/derive_wordlist.cljk\n"
+                    ";; 検査:   nbb --classpath src scripts/derive_wordlist.cljk --check\n"
                     "(ns word-id.english\n"
                     "  \"既定の英語語彙 —— " target-size " 語。**生成物。手で編集しない。**\n\n"
                     "  出所は /usr/share/dict/web2（Webster's Second International、public domain）。\n"
                     "  候補は scripts/candidates.edn に手で書くが、採否は\n"
-                    "  scripts/derive_wordlist.cljs の規則が決める: web2 に実在すること、\n"
+                    "  scripts/derive_wordlist.cljk の規則が決める: web2 に実在すること、\n"
                     "  " min-length "〜" max-length " 文字の a-z、先頭 " prefix-length
                     " 文字が一意、相互の編集距離が 2 以上。\n\n"
                     "  " target-size " は 1024 に最も近い素数。素数であることは要件で、\n"

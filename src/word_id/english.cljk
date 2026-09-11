@@ -1,12 +1,12 @@
 ;; 生成物。手で編集しない。
-;; 再生成: nbb --classpath src scripts/derive_wordlist.cljs
-;; 検査:   nbb --classpath src scripts/derive_wordlist.cljs --check
+;; 再生成: nbb --classpath src scripts/derive_wordlist.cljk
+;; 検査:   nbb --classpath src scripts/derive_wordlist.cljk --check
 (ns word-id.english
   "既定の英語語彙 —— 1021 語。**生成物。手で編集しない。**
 
   出所は /usr/share/dict/web2（Webster's Second International、public domain）。
   候補は scripts/candidates.edn に手で書くが、採否は
-  scripts/derive_wordlist.cljs の規則が決める: web2 に実在すること、
+  scripts/derive_wordlist.cljk の規則が決める: web2 に実在すること、
   4〜7 文字の a-z、先頭 4 文字が一意、相互の編集距離が 2 以上。
 
   1021 は 1024 に最も近い素数。素数であることは要件で、

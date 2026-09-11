@@ -68,10 +68,10 @@ ID** なので、UI の「もしかして」に使ってよいが自動採用し
 
 ## 既定語彙 1021 語の出所
 
-`src/word_id/english.cljc` は**生成物**。手で編集しない。
+`src/word_id/english.cljk` は**生成物**。手で編集しない。
 
-    nbb --classpath src scripts/derive_wordlist.cljs           # 再生成
-    nbb --classpath src scripts/derive_wordlist.cljs --check   # canonical か検査
+    nbb --classpath src scripts/derive_wordlist.cljk           # 再生成
+    nbb --classpath src scripts/derive_wordlist.cljk --check   # canonical か検査
 
 候補は `scripts/candidates.edn` に手で書くが、採否は生成器が決める:
 `/usr/share/dict/web2`（Webster's Second International、public domain）に
@@ -109,7 +109,7 @@ ID** なので、UI の「もしかして」に使ってよいが自動採用し
 
 ```bash
 clojure -M:test                                  # JVM
-nbb --classpath src:test run-tests.cljs          # ClojureScript
+nbb --classpath src:test run-tests.cljk          # ClojureScript
 ```
 
 両方で回すのは、JVM で通ることが CLJS でも同じ答えを出す証拠にならないから

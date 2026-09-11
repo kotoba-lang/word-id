@@ -1,6 +1,6 @@
 ;; word-id 既定語彙の候補。ここは手で書く唯一のファイル。
 ;;
-;; ここに書いた語がそのまま語彙になるわけではない。scripts/derive_wordlist.cljs が
+;; ここに書いた語がそのまま語彙になるわけではない。scripts/derive_wordlist.cljk が
 ;;   (1) /usr/share/dict/web2 に実在するか
 ;;   (2) 4..7 文字・a-z のみか
 ;;   (3) 先頭 4 文字が他と衝突しないか
